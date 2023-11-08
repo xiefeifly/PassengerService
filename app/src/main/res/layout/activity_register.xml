@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="RegisterActivity"
+            type="com.passenger.ui.RegisterActivity" />
+
+        <variable
+            name="vm"
+            type="com.passenger.ui.RegisterMoudel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/homebg">
+
+        <include
+            android:id="@+id/titleRegister"
+            layout="@layout/title_layout" />
+
+        <LinearLayout
+            android:id="@+id/synopsis"
+            android:layout_width="600dp"
+            android:layout_height="810dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="199dp"
+            android:background="@color/regoin"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="|  智慧边门介绍"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="25dp"
+                android:background="#FFBDE7FC" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="25dp"
+                android:text="应本市XXXXXX规章制度，凡符合以下任一项要求的乘客，即可在“XX
+地铁服务app“或车站内自助机上进行自主的注册认证。后台审核成功后，
+您可于任意车站边门处的人脸识别装置刷脸进站/出站。\n\n\n
+
+1、60周岁以上的乘客\n\n
+2、持有一级、二级残疾证的乘客\n\n
+3、持有XXXX证的乘客\n\n
+4、持有XXXX证的乘客\n\n
+5、因公事需临时进出人员（此项需站内工作人员协助办理）"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="980dp"
+            android:layout_height="810dp"
+            android:layout_marginLeft="780dp"
+            android:layout_marginTop="199dp"
+            android:background="@color/regoin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择人员类型进行注册认证"
+            android:textColor="#FF1074F0"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.24" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnType1"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:background="@mipmap/bg_btn"
+            android:text="60周岁以上的乘客"
+            android:textColor="#fff"
+            android:textSize="@dimen/btn_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnType2"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="130dp"
+            android:background="@mipmap/bg_btn"
+            android:onClick="@{()->RegisterActivity.btnType2()}"
+            android:text="伤残军人"
+            android:textColor="#fff"
+            android:textSize="@dimen/btn_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/btnType1"
+            app:layout_constraintTop_toTopOf="@+id/btnType1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnType3"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="260dp"
+            android:background="@mipmap/bg_btn"
+            android:text="因公事需临时进入的人员"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/btnType1"
+            app:layout_constraintTop_toTopOf="@+id/btnType1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnType4"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginLeft="400dp"
+            android:background="@mipmap/bg_btn"
+            android:text="一级、二级残疾人"
+            android:textColor="#fff"
+            android:textSize="@dimen/btn_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/btnType1"
+            app:layout_constraintTop_toTopOf="@+id/btnType1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnType5"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="130dp"
+            android:background="@mipmap/bg_btn"
+            android:text="XXXXX"
+            android:textColor="#fff"
+            android:textSize="@dimen/btn_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/btnType1"
+            app:layout_constraintTop_toTopOf="@+id/btnType1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

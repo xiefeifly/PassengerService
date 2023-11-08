@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">PassengerService</string>
+
+    <string name="face_one">扫描身份证</string>
+    <string name="face_two">证件扫描存档</string>
+    <string name="face_three">录入人脸信息</string>
+    <string name="face_four">填写电话号码</string>
+
+    <string name="face_ones">第一步  扫描身份证</string>
+    <string name="face_twos">第二步  证件扫描存档</string>
+    <string name="face_threes">第三步  录入人脸信息</string>
+    <string name="face_fours">第四步  填写电话号码</string>
+    <string name="face_foures">第二步  录入人脸</string>
+
+    <string name="menu_idcard">二代身份证</string>
+    <string name="menu_iccard">IC卡读卡器</string>
+    <string name="menu_qrcode">二维码扫码器</string>
+    <string name="menu_temperature">测温</string>
+    <string name="menu_led">LED灯</string>
+    <string name="menu_verification">人证核验</string>
+    <string name="menu_device_info">设备信息</string>
+    <string name="menu_light_sensor">光感器</string>
+    <string name="menu_out_signal">信号控制</string>
+
+
+    <string name="idcard_info_title">身份证信息</string>
+    <string name="idcard_start_read">开始读取身份证</string>
+    <string name="idcard_stop_read">停止读取身份证</string>
+    <string name="idcard_open_light">打开身份证灯</string>
+    <string name="idcard_close_light">关闭身份证灯</string>
+    <string name="idcard_type">证件类型：</string>
+    <string name="idcard_name">姓名：</string>
+    <string name="idcard_sex">性别：</string>
+    <string name="idcard_nation">民族：</string>
+    <string name="idcard_birthday">出生日期：</string>
+    <string name="idcard_address">住址：</string>
+    <string name="idcard_number">身份证号码：</string>
+    <string name="idcard_authority">签发机关：</string>
+    <string name="idcard_validity">有效期：</string>
+    <string name="idcard_physical_id">物理ID：</string>
+    <string name="idcard_fingerprint">指纹信息：</string>
+    <string name="idcard_consumed_time">耗时：</string>
+    <string name="idcard_read_times">读卡总次数：</string>
+    <string name="idcard_open_success">身份证模块打开成功</string>
+    <string name="idcard_open_failed">身份证模块打开失败：</string>
+    <string name="idcard_please_enter_interval">请输入读卡间隔时间</string>
+    <string name="idcard_cpu_key_must_be_16bit_or_32bit">CPU卡类型读卡密码必须是16位或者32位</string>
+    <string name="idcard_detect_card">检测到卡片</string>
+    <string name="idcard_is_reading">正在读取身份证...</string>
+    <string name="idcard_is_stop">停止读取身份证</string>
+    <string name="idcard_tts_reading">正在独取身份证，请勿移动</string>
+    <string name="idcard_tts_read_failed">独取身份证失败</string>
+    <string name="idcard_read_success">读卡成功！</string>
+    <string name="idcard_read_failed">读卡失败！</string>
+    <string name="idcard_value_has">有</string>
+    <string name="idcard_value_none">无</string>
+
+
+    <string name="verification_please_read_card">请刷身份证</string>
+    <string name="verification_look_at_camera">请注视摄像头</string>
+    <string name="verification_compare_face">正在比对人脸</string>
+    <string name="verification_verify_success">人证核验成功</string>
+    <string name="verification_verify_failed">"人证核验失败，相似度：%d%%"</string>
+    <string name="verification_compare_failed">人脸特征比对失败</string>
+    <string name="verification_feature_failed">人脸特征提取失败</string>
+    <string name="verification_no_face">未检测到人脸</string>
+    <string name="verification_fingerprint_enable">核验指纹</string>
+
+    <string name="tvMsg1">请将二代身份证放置于\n身份验证区域进行验证</string>
+    <string name="tvMsg2">请将证件(残疾证/XX证件)放置\n于证件扫描区域进行验证存档</string>
+    <string name="tvMsg3">请您录入人脸身份信息,\n用于进出边门人脸验证设备</string>
+    <string name="tvMsg4">车站工作人员将尽快进行审核，您可一体机\n刷身份证或输入身份证号查询注册结果。\n您也可拨打56231主动联系车站。</string>
+</resources>

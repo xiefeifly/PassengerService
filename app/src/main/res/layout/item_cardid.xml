@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="handler"-->
+<!--            type="com.passenger.ui.CardIdModel" />-->
+
+<!--        <variable-->
+<!--            name="item"-->
+<!--            type="com.passenger.bean.DataItem" />-->
+<!--    </data>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/customCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.027"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01" />
+
+        <View
+            android:id="@+id/code"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.027"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/passengerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="@id/code"
+            app:layout_constraintStart_toEndOf="@id/code"
+            app:layout_constraintTop_toTopOf="@id/code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="330dp"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="@id/code"
+            app:layout_constraintStart_toEndOf="@id/code"
+            app:layout_constraintTop_toTopOf="@id/code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="590dp"
+            android:text="已录入"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="@id/code"
+            app:layout_constraintStart_toEndOf="@id/code"
+            app:layout_constraintTop_toTopOf="@id/code" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/deleteImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="780dp"
+            android:background="@mipmap/delete"
+            app:layout_constraintBottom_toBottomOf="@id/code"
+            app:layout_constraintStart_toEndOf="@id/code"
+            app:layout_constraintTop_toTopOf="@id/code" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="50dp"
+            android:background="#000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

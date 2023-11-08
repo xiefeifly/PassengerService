@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="cardidVm"
+            type="com.passenger.ui.CardIdModel" />
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="DataItem"
+            type="com.passenger.bean.DataItem" />
+
+        <variable
+            name="fuckNetImage"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/homebg">
+
+        <include
+            android:id="@+id/cardTitle"
+            layout="@layout/title_layout" />
+
+        <View
+            android:layout_width="960dp"
+            android:layout_height="580dp"
+            android:background="#FFCFEBFD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{cardidVm.tvTitle}"
+            android:textColor="#FF1074F0"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="请临时进出人员依次进行身份验证"
+            android:textColor="#FF1074F0"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="380dp"
+            android:background="@mipmap/bg_btn"
+            android:onClick="@{()->cardidVm.submit()}"
+            android:text="提交"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="@{cardidVm.flageSubmit?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生效时间"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.27"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/bg_btnwk"
+            android:drawableRight="@mipmap/calendar"
+            android:gravity="center_vertical"
+            android:onClick="@{()->cardidVm.startTime()}"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@{cardidVm.startTime}"
+            android:textColor="#FF1074F0"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/position"
+            app:layout_constraintStart_toEndOf="@id/position"
+            app:layout_constraintTop_toTopOf="@id/position" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="280dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="失效时间"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintBottom_toBottomOf="@id/position"
+            app:layout_constraintStart_toEndOf="@id/position"
+            app:layout_constraintTop_toTopOf="@id/position" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="380dp"
+            android:background="@drawable/bg_btnwk"
+            android:drawableRight="@mipmap/calendar"
+            android:gravity="center_vertical"
+            android:onClick="@{()->cardidVm.endTime()}"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@{cardidVm.endTime}"
+            android:textColor="#FF1074F0"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/position"
+            app:layout_constraintStart_toEndOf="@id/position"
+            app:layout_constraintTop_toTopOf="@id/position" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="730dp"
+            android:background="@drawable/bg_btnwk"
+            android:drawableLeft="@mipmap/bg_add"
+            android:gravity="center"
+            android:onClick="@{()->cardidVm.add()}"
+            android:paddingLeft="15dp"
+            android:text="增加"
+            android:textColor="#FF1074F0"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/position"
+            app:layout_constraintStart_toEndOf="@id/position"
+            app:layout_constraintTop_toTopOf="@id/position" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/positionOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="序号"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintStart_toStartOf="@id/position"
+            app:layout_constraintTop_toTopOf="@id/position" />
+
+        <View
+            android:layout_width="960dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:background="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:drawableLeft="@drawable/bg_x"
+            android:drawablePadding="20dp"
+            android:text="姓名"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintStart_toEndOf="@id/positionOne"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:drawableLeft="@drawable/bg_x"
+            android:drawablePadding="20dp"
+            android:text="身份证号"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintStart_toEndOf="@id/positionOne"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="550dp"
+            android:drawableLeft="@drawable/bg_x"
+            android:drawablePadding="20dp"
+            android:text="人脸信息"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintStart_toEndOf="@id/positionOne"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="750dp"
+            android:drawableLeft="@drawable/bg_x"
+            android:drawablePadding="20dp"
+            android:text="操作"
+            android:textColor="#000"
+            android:textSize="@dimen/cardid_bsize"
+            app:layout_constraintStart_toEndOf="@id/positionOne"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="960dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/positionOne" />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="960dp"-->
+<!--            android:layout_height="320dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:orientation="vertical"-->
+<!--            app:data="@{cardidVm.dataList}"-->
+<!--            app:itemEventHandler="@{cardidVm}"-->
+<!--            app:itemLayout="@{@layout/item_cardid}"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/positionOne" />-->
+
+        <View
+            android:id="@+id/relativeView"
+            android:layout_width="@dimen/imge_size"
+            android:layout_height="@dimen/imge_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.85" />
+
+        <RelativeLayout
+            android:id="@+id/cardidTitleOne"
+            android:layout_width="960dp"
+            android:layout_height="580dp"
+            android:background="#FFCFEBFD"
+            android:gravity="center"
+            android:visibility="@{cardidVm.flagecardidTitleOne?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@{cardidVm.tvTitle}"
+                android:textColor="@color/cardid_tv"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="690dp"
+                android:layout_height="350dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="101dp"
+                android:layout_marginTop="106dp"
+                android:layout_marginEnd="101dp"
+                android:layout_marginBottom="67dp"
+                android:background="#FFF" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{cardidVm.tvMsg}"
+                android:textColor="@color/cardid_tv"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="420dp"
+                android:layout_marginBottom="100dp"
+                android:background="@mipmap/bg_btn"
+                android:gravity="center"
+                android:onClick="@{()->cardidVm.enter()}"
+                android:text="去录入"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:visibility="@{cardidVm.flageEnter?View.VISIBLE:View.GONE}" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/cardCameraContainer"
+            android:layout_width="960dp"
+            android:layout_height="560dp"
+            android:layout_gravity="center"
+            android:rotation="0"
+            android:visibility="@{cardidVm.flageCameraContainer?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextureView
+                android:id="@+id/cardTvCameraView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/cardTvIDMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="请将证件正面朝上"
+                android:textColor="#f00"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="@{cardidVm.flageCardBtnYes?View.VISIBLE:View.GONE}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cardBtnYes"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:background="@mipmap/bg_btn"
+                    android:onClick="@{()->cardidVm.cardBtnYes()}"
+                    android:text="确认"
+                    android:textColor="#fff"
+                    android:textSize="25sp"
+                    android:visibility="@{cardidVm.flageCardBtnYes?View.VISIBLE:View.GONE}" />
+            </LinearLayout>
+
+            <!--        <com.example.faceoridcard.widget.FaceRectView-->
+            <!--            android:id="@+id/fv_faceView"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="match_parent" />-->
+
+
+        </FrameLayout>
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="960dp"
+            android:layout_height="15dp"
+            android:background="#FFf"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.84" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgOne"
+            android:layout_width="@dimen/imge_size"
+            android:layout_height="@dimen/imge_size"
+            android:layout_marginLeft="-480dp"
+            android:background="@mipmap/checktrue"
+            app:layout_constraintStart_toStartOf="@id/relativeView"
+            app:layout_constraintTop_toTopOf="@id/relativeView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="第一步 扫描身份证"
+            android:textColor="@color/faceid_tvcolor_on"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgOne"
+            app:layout_constraintStart_toStartOf="@+id/imgOne"
+            app:layout_constraintTop_toTopOf="@id/imgOne" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgFour"
+            android:layout_width="@dimen/imge_size"
+            android:layout_height="@dimen/imge_size"
+            android:layout_marginLeft="480dp"
+            app:layout_constraintStart_toStartOf="@id/relativeView"
+            app:layout_constraintTop_toTopOf="@id/relativeView"
+            android:background="@mipmap/checkoff"
+             />
+        <!--            android:background="@mipmap/checkoff"-->
+
+        <!--        <include-->
+        <!--            layout="@layout/item_cardid"-->
+        <!--            android:layout_width="960dp"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            android:layout_marginTop="500dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="录入人脸"
+            android:textColor="@color/faceid_tvcolor_off"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgFour"
+            app:layout_constraintStart_toStartOf="@+id/imgFour"
+            app:layout_constraintTop_toTopOf="@id/imgFour" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
