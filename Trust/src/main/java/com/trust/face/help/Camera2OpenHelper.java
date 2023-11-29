@@ -460,7 +460,6 @@ public class Camera2OpenHelper implements CameraOpenInterface{
         switch (deviceLevel) {
             case CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY:
                 Log.d(TAG, "Camera has LEGACY Camera2 support");
-//                isSupport = true;
                 break;
             case CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL:
                 Log.d(TAG, "Camera has EXTERNAL Camera2 support");

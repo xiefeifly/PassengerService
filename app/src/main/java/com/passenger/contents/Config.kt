@@ -7,7 +7,8 @@ object Config {
 
     val PC_NAME = "bjp1"
     val ANDROID_NAME = "bjp2"
-    val URL = "http://10.243.1.32:3000/passengerService/allInOnePad/Layout"
+    val URL = "http://10.243.1.9:8899/passengerService/allInOnePad/Layout"
+//    val URL = "http://10.243.1.32:3000/passengerService/allInOnePad/Layout"
     val ApiURL = "http://10.243.1.6:9364/"
 //    val ApiURL = "http://10.243.1.29:9364/"
     val ApiUploadURL = "http://10.243.1.6:9988/"

@@ -37,15 +37,23 @@ class FspUserViewGroup : ViewGroup {
         Log.e(TAG, "onMeasure  w: $w")
         Log.e(TAG, "onMeasure  h: $h")
         if (childCount <= 0) return
-        if (childCount == 1) {
+        if (childCount <= 1) {
             getChildAt(0).measure(widthMeasureSpec, heightMeasureSpec)
         }
-        if (childCount == 2) {
-            getChildAt(0).measure(widthMeasureSpec, heightMeasureSpec)
-            getChildAt(1).measure(
-                MeasureSpec.makeMeasureSpec(w / 3, MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(h / 3, MeasureSpec.EXACTLY)
-            )
+        if (childCount <= 2) {
+            for (i in 0 until childCount) {
+                if (i == 0)
+//                    getChildAt(0).measure(widthMeasureSpec, heightMeasureSpec)
+                getChildAt(0).measure(
+                    MeasureSpec.makeMeasureSpec(w / 3, MeasureSpec.EXACTLY),
+                    MeasureSpec.makeMeasureSpec(h / 3, MeasureSpec.EXACTLY)
+                )
+                else
+                    getChildAt(1).measure(
+                        MeasureSpec.makeMeasureSpec(w / 3, MeasureSpec.EXACTLY),
+                        MeasureSpec.makeMeasureSpec(h / 3, MeasureSpec.EXACTLY)
+                    )
+            }
 
         }
 
@@ -74,14 +82,22 @@ class FspUserViewGroup : ViewGroup {
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         if (childCount == 0) return
-        if (childCount == 1) {
+        if (childCount <= 1) {
 //            getChildAt(0).layout(0, 0, 900, 600)
             getChildAt(0).layout(0, 0, 900, 600)
-        }
-        if (childCount == 2) {
+        } else if (childCount <= 2) {
             Log.e(TAG, "onLayoutsssssssssssss: $childCount")
-            getChildAt(0).layout(0, 0, 900, 600)
-            getChildAt(1).layout(600, 0, 900, 200)
+            for (i in 0 until childCount) {
+                val childAt = getChildAt(i)
+                if (i == 0) {
+                    Log.e(TAG, "onLayoutsssssssssssss0: ")
+                    childAt.layout(0, 0, 300, 200)
+                } else {
+                    Log.e(TAG, "onLayoutsssssssssssss1: ")
+                    childAt.layout(600, 0, 900, 200)
+                }
+
+            }
 //            for (i in 1..0) {
 //                Log.e(TAG, "onLayout: $i")
 //                var child = getChildAt(i)
@@ -98,6 +114,7 @@ class FspUserViewGroup : ViewGroup {
 //            }
         }
     }
+
     fun stopPublishLocalVideo(): Boolean {
         val videoView = ensureUserView(FspManager.selfUserId, null, false)
         if (videoView != null) {
@@ -107,6 +124,7 @@ class FspUserViewGroup : ViewGroup {
         }
         return false
     }
+
     fun stopPublishLocalAudio(): Boolean {
         val videoView = ensureUserView(FspManager.selfUserId, null, false)
         if (videoView != null) {
@@ -116,6 +134,7 @@ class FspUserViewGroup : ViewGroup {
         }
         return false
     }
+
     fun startPublishLocalAudio(): Boolean {
         val videoView = ensureUserView(FspManager.selfUserId, null, false)
         if (videoView != null) {
@@ -135,6 +154,8 @@ class FspUserViewGroup : ViewGroup {
     }
 
     fun startPublishLocalVideo(isFront: Boolean): Boolean {
+        val ss = FspManager.selfUserId
+        Log.e(TAG, "startPublishLocalVideo: ===============, $ss")
         val videoView = ensureUserView(FspManager.selfUserId, null, true)
         if (videoView != null) {
             videoView.openVideo()
@@ -150,7 +171,8 @@ class FspUserViewGroup : ViewGroup {
 
     fun onEventRemoteVideoAndAudio() {
         for (remote_video_info in FspManager.getRemoteVideos()) {
-            var videoView = ensureUserView(remote_video_info.first, remote_video_info.second, false)
+            var videoView =
+                ensureUserView(remote_video_info.first, remote_video_info.second, true)
             if (videoView == null) {
                 Logger.e(
                     "videoView == null: %s, %s",
@@ -182,7 +204,7 @@ class FspUserViewGroup : ViewGroup {
                 )
             ) {
                 videoView.closeVideo()
-                (videoView)
+               removeView(videoView)
             }
         } else if (event.eventtype === FspEngine.REMOTE_VIDEO_PUBLISH_STOPED) {
             videoView.closeVideo()

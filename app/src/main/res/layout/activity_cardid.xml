@@ -242,18 +242,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/positionOne" />
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="960dp"-->
-<!--            android:layout_height="320dp"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:orientation="vertical"-->
-<!--            app:data="@{cardidVm.dataList}"-->
-<!--            app:itemEventHandler="@{cardidVm}"-->
-<!--            app:itemLayout="@{@layout/item_cardid}"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="@id/positionOne" />-->
 
         <View
             android:id="@+id/relativeView"

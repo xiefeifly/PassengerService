@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil
 import com.hst.business.FspEvents
 import com.hst.business.FspManager
 import com.hst.utils.AudioManagerUtils
+import com.hst.utils.AudioManagerUtils.init
 import com.passenger.contents.Config
 import com.passenger.databinding.ActivityMainBinding
 import com.passenger.ui.CardIdActivity
@@ -53,21 +54,21 @@ class MainActivity : AppCompatActivity() {
         val login = FspManager.login(Config.ANDROID_NAME, Config.ANDROID_NAME)
         Log.e(TAG, "onCreate: login $login")
 
-        startActivity(Intent(this, CardIdActivity::class.java))
+//        startActivity(Intent(this, CardIdActivity::class.java))
 //        startActivity(Intent(this, FaceIdActivity::class.java))
 //        startActivity(Intent(this, RegisterActivity::class.java))
 
-//        setWebView(mBinding.webview)
-//        mBinding.webview.loadUrl(url)
+        setWebView(mBinding.webview)
+        mBinding.webview.loadUrl(url)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun loginResult(result: FspEvents.LoginResult) {
         Log.e(TAG, "lon: ddfsdfsdf===================================" + result.isSuccess)
         if (result.isSuccess) {
-            val voiceCallIntent = Intent(this, InviteIncomeActivity::class.java)
-            voiceCallIntent.putExtra("Incometype", 0)
-            voiceCallIntent.putExtra("IM_INFO", 0)
+//            val voiceCallIntent = Intent(this, InviteIncomeActivity::class.java)
+//            voiceCallIntent.putExtra("Incometype", 0)
+//            voiceCallIntent.putExtra("IM_INFO", 0)
 //            startActivity(voiceCallIntent)
         } else {
             ToastUtil.showBottom(this, result.desc)
