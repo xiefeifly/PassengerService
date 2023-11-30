@@ -14,6 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PassengerService"
 include ':app'
-include ':HST'
+//include ':HST'
 include ':Trust'
 include ':pickerview'
+include ':HSTS'

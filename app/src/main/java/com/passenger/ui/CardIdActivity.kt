@@ -97,6 +97,9 @@ class CardIdActivity : AppCompatActivity(), CameraStateCallback {
         cardIdModel.isDetectingFace.observe(
             this
         ) { value -> isDetectingFace = value }
+        mBinding.cardTitle.back.setOnClickListener {
+            finish()
+        }
     }
 
     fun openCamera(cameraId: String) {
@@ -153,7 +156,6 @@ class CardIdActivity : AppCompatActivity(), CameraStateCallback {
             val height: Int = image.height
             val ret: Int = FaceHelper
                 .detectFaceForVideo(data, width, height, ImageFormat.PIX_FMT_NV21, faceInfoList)
-//            Log.e(TAG, "faceInfoList: $ret")
 
             if (ret == ErrorInfo.CV_OK && faceInfoList.size > 0) {
 //                Log.d(TAG,"faceInfoList: $faceInfoList")
@@ -305,6 +307,7 @@ class CardIdActivity : AppCompatActivity(), CameraStateCallback {
             }
         }
     }
+
     fun hideBottomMenu() {
         val decorView = window.decorView
         val option =

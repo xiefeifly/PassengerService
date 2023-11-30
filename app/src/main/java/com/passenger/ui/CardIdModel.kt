@@ -371,8 +371,6 @@ class CardIdModel : ViewModel() {
 
     fun setIDCardBitmap(IdCardBitmap: Bitmap, name: String) {
         job.launch(Dispatchers.IO) {
-//            var bitmap = IdCardBitmap!!.copy(Bitmap.Config.ARGB_8888, true)
-//            delay(2000)
             var path = "${Environment.getExternalStorageDirectory()}/TrustFaceDemo"
             BitmapUtil.saveBitmap2File(IdCardBitmap, path, name)
             var paths = "$path/$name.png"

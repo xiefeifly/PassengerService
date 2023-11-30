@@ -123,6 +123,9 @@ class FaceIdActivity : AppCompatActivity(), CameraStateCallback {
                 }
             }
         }
+        mBinding.faceIdTitle.back.setOnClickListener {
+            finish()
+        }
     }
 
     private fun openDevice(context: Context) {

@@ -13,15 +13,13 @@ import android.webkit.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.hst.business.FspEvents
-import com.hst.business.FspManager
-import com.hst.utils.AudioManagerUtils
-import com.hst.utils.AudioManagerUtils.init
+import com.example.hsts.business.FspEvents
+import com.example.hsts.business.FspManager
+import com.example.hsts.utils.AudioManagerUtils
 import com.passenger.contents.Config
 import com.passenger.databinding.ActivityMainBinding
 import com.passenger.ui.CardIdActivity
 import com.passenger.ui.FaceIdActivity
-import com.passenger.ui.InviteIncomeActivity
 import com.passenger.ui.RegisterActivity
 import com.passenger.utils.ContentUtil
 import com.passenger.utils.ToastUtil
@@ -45,13 +43,13 @@ class MainActivity : AppCompatActivity() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         hideBottomMenu()
         EventBus.getDefault().register(this)
-        AudioManagerUtils.init(this)
+        AudioManagerUtils.getInstance().init(this)
 //        val deviceSN = ContentUtil.getDeviceSN()
 //        Log.e(TAG, "deviceSN: $deviceSN")
-
-        val init = FspManager.init(this, appId, appSecret, serverAddr)
+        var fsp = FspManager.getInstance()
+        val init = fsp.init(this, appId, appSecret, serverAddr)
         Log.e(TAG, "onCreate: init $init")
-        val login = FspManager.login(Config.ANDROID_NAME, Config.ANDROID_NAME)
+        val login = fsp.login(Config.ANDROID_NAME, Config.ANDROID_NAME)
         Log.e(TAG, "onCreate: login $login")
 
 //        startActivity(Intent(this, CardIdActivity::class.java))
@@ -159,6 +157,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     fun hideBottomMenu() {
         val decorView = window.decorView
         val option =

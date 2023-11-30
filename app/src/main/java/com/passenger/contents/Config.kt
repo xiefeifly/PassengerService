@@ -2,15 +2,19 @@ package com.passenger.contents
 
 object Config {
 
+
+    //    lateinit var ANDROID_NAME: String
     val ACTIVE_ACCOUNT = "1122"
     val ACTIVE_PASSWORD = "232d90fd469d19ef"
 
-    val PC_NAME = "bjp1"
-    val ANDROID_NAME = "bjp2"
+    var PC_NAME: String = "bjp1"
+    var ANDROID_NAME = "bjp2"
     val URL = "http://10.243.1.9:8899/passengerService/allInOnePad/Layout"
-//    val URL = "http://10.243.1.32:3000/passengerService/allInOnePad/Layout"
+
+    //    val URL = "http://10.243.1.32:3000/passengerService/allInOnePad/Layout"
     val ApiURL = "http://10.243.1.6:9364/"
-//    val ApiURL = "http://10.243.1.29:9364/"
+
+    //    val ApiURL = "http://10.243.1.29:9364/"
     val ApiUploadURL = "http://10.243.1.6:9988/"
 
 

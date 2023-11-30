@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black1">#FF333333</color>
+    <color name="hui">#FF999999</color>
+    <color name="color_ff4a8fff">#FF4A8FFF</color>
+    <color name="color_ff666666">#FF666666</color>
+    <color name="color_ff0089fa">#FF0089FA</color>
+    <color name="photopicker_background">#181819</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="circle">#FF80C3FF</color>
+    <color name="circles">#ff0088ff</color>
+    <color name="collecttv">#FF000000</color>
+    <color name="collect">#FF4A8FFF</color>
+</resources>

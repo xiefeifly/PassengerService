@@ -4,14 +4,15 @@ import android.app.Application
 import android.content.Intent
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.hst.HstApplications
+import com.example.hsts.HstApplication
+
 //import com.passenger.widget.MeetingDemoService
 
-class PassengerApplication :Application() {
+class PassengerApplication : Application() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
 
-        HstApplications.init(this)
+        HstApplication.getInstance().init()
     }
 }

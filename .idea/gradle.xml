@@ -10,7 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/HST" />
+            <option value="$PROJECT_DIR$/HSTS" />
             <option value="$PROJECT_DIR$/Trust" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/pickerview" />

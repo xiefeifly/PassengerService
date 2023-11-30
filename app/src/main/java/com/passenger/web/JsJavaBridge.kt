@@ -5,10 +5,10 @@ import android.content.Intent
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import com.passenger.ui.InviteIncomeActivity
 import com.passenger.MainActivity
 import com.passenger.ui.CardIdActivity
 import com.passenger.ui.FaceIdActivity
-import com.passenger.ui.InviteIncomeActivity
 
 class JsJavaBridge(val mainActivity: MainActivity, webview: WebView) {
     val TAG = "JsJavaBridge"
